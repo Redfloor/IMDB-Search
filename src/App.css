@@ -1,38 +1,184 @@
+body {
+  background-color: #333;
+}
+
 .App {
-  text-align: center;
+  box-sizing: border-box;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1, h2, h3, h4 {
+  margin: 0 1em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 28px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 100%;
+}
+
+button {
+  border:none;
+  width: 140px;
+  height: 22px;
+  background-color: #793;
+  color: white;
+  transition: linear .1s;
+  border-radius: 0;
+}
+
+button:hover {
+  background-color: #3b3;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+input {
+  box-sizing: border-box;
+  border-radius: 0;
+  border: solid 1px #333;
+  border-right-width: 0;
+  height: 22px
+}
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.nav input, .nav button {
+  height: 50px;
+  width: auto;
+  font-size: 24px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border: none;
+}
+
+.nav button:first-of-type:hover {
+  border-radius: 0 10px 10px 0;
+}
+
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  flex-wrap: nowrap;
+}
+
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.movie {
+  display: flex;
+  margin: 20px;
+  height: 200px;
+  box-sizing: border-box;
+  border: solid 3px #c33;
+  border-radius: 15px;
+  width: calc(50% - 40px);
+  min-width: 400px;
+  flex-grow: 1;
+  overflow: hidden;
+  background-color: #000;
+  color: #eee;
+}
+
+.movie img {
+  justify-self: flex-start;
+}
+
+.movie .info {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  }
+
+.movie button {
+  margin: 10px;
+  padding: 10px 20px;
+  width: 250px;
+  height: 35px;
+  display: flex;
+  line-height: 15px;
+  justify-content: space-evenly;
+  align-content: space-evenly;
 }
 
-.App-link {
-  color: #61dafb;
+.movie svg {
+  height: 25px;
+  margin-top: -5px;
 }
 
-@keyframes App-logo-spin {
+.favouriteAdd {
+  background-color: #793;
+  align-self: center;
+}
+
+.favouriteRemove {
+  background-color: #c33;
+  align-self: center;
+}
+
+/*
+bootstrap base css is stupid, yoinking it manually
+*/
+
+.loading {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: calc(100vh - 100px);
+}
+
+.spinner-border {
+  display: inline-block;
+  margin: auto;
+  width: 30vw;
+  height: 30vw;
+  border: 3vw solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: .75s linear infinite spinner-border;
+  animation: .75s linear infinite spinner-border;
+}
+
+@keyframes spinner-border {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.text-light {
+  --bs-text-opacity: 1;
+  color: white !important;
+}
+
+.visually-hidden {
+  display: none;
+}
+
+@media (max-width:800px) {
+  .movie {
+    width: calc(100% - 20px);
   }
 }
